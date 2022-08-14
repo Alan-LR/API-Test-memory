@@ -7,43 +7,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Table(name = "HQs")
 @Entity
 public class Hqs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idHQ;
+    private Integer idHq;
     private String titulo;
     private Double preco;
     private String genero;
+
     @ManyToMany
-    @JoinColumn(name = "idAutor")
-    private List<Autor> autor;
+    @JoinTable(name = "hqs_autores", joinColumns = @JoinColumn(name = "idHq"), inverseJoinColumns = @JoinColumn(name = "idAutor"))
+    private List<Autor> autores;
     @ManyToMany
-    @JoinColumn(name = "idIlustrador")
-    private List<Ilustrador> ilustrador;
+    @JoinTable(name = "hqs_ilustradores", joinColumns = @JoinColumn(name = "idHq"), inverseJoinColumns = @JoinColumn(name = "idIlustrador"))
+    private List<Ilustrador> ilustradores;
 
     public Hqs() {
     }
 
-    public Hqs(Integer idHQ, String titulo, Double preco, String genero, List<Autor> autor,
-            List<Ilustrador> ilustrador) {
-        this.idHQ = idHQ;
+    public Hqs(Integer idHq, String titulo, Double preco, String genero, List<Autor> autores,
+            List<Ilustrador> ilustradores) {
+        this.idHq = idHq;
         this.titulo = titulo;
         this.preco = preco;
         this.genero = genero;
-        this.autor = autor;
-        this.ilustrador = ilustrador;
+        this.autores = autores;
+        this.ilustradores = ilustradores;
     }
 
-    public Integer getIdHQ() {
-        return idHQ;
+    public Integer getIdHq() {
+        return idHq;
     }
 
-    public void setIdHQ(Integer idHQ) {
-        this.idHQ = idHQ;
+    public void setIdHq(Integer idHq) {
+        this.idHq = idHq;
     }
 
     public String getTitulo() {
@@ -70,20 +74,20 @@ public class Hqs {
         this.genero = genero;
     }
 
-    public List<Autor> getAutor() {
-        return autor;
+    public List<Autor> getAutores() {
+        return autores;
     }
 
-    public void setAutor(List<Autor> autor) {
-        this.autor = autor;
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
     }
 
-    public List<Ilustrador> getIlustrador() {
-        return ilustrador;
+    public List<Ilustrador> getIlustradores() {
+        return ilustradores;
     }
 
-    public void setIlustrador(List<Ilustrador> ilustrador) {
-        this.ilustrador = ilustrador;
+    public void setIlustradores(List<Ilustrador> ilustradores) {
+        this.ilustradores = ilustradores;
     }
 
 }

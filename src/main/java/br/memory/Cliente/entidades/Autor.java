@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Table(name = "Autores")
 @Entity
 public class Autor {
 
@@ -16,17 +18,18 @@ public class Autor {
     private Integer idAutor;
     private String nome;
     private Integer idade;
-    @OneToMany(mappedBy = "autor")
-    private List<Hqs> obras;
+
+    @ManyToMany(mappedBy = "autores")
+    private List<Hqs> idHqs;
 
     public Autor() {
     }
 
-    public Autor(Integer idAutor, String nome, Integer idade, List<Hqs> obras) {
+    public Autor(Integer idAutor, String nome, Integer idade, List<Hqs> idHqs) {
         this.idAutor = idAutor;
         this.nome = nome;
         this.idade = idade;
-        this.obras = obras;
+        this.idHqs = idHqs;
     }
 
     public Integer getIdAutor() {
@@ -53,12 +56,12 @@ public class Autor {
         this.idade = idade;
     }
 
-    public List<Hqs> getObras() {
-        return obras;
+    public List<Hqs> getIdHqs() {
+        return idHqs;
     }
 
-    public void setObras(List<Hqs> obras) {
-        this.obras = obras;
+    public void setIdHqs(List<Hqs> idHqs) {
+        this.idHqs = idHqs;
     }
 
 }
