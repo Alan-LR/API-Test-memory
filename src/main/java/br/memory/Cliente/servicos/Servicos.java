@@ -1,5 +1,8 @@
 package br.memory.Cliente.servicos;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +62,7 @@ public class Servicos {
     public Hqs alterarHq(Integer idHq, Hqs hq) {
         Hqs objeto = hqsRepositorio.getReferenceById(idHq);
         alterandoHq(objeto, hq);
-        return null;
+        return hqsRepositorio.save(objeto);
     }
 
     private void alterandoHq(Hqs objeto, Hqs hq) {
@@ -68,6 +71,45 @@ public class Servicos {
         objeto.setGenero(hq.getGenero());
         objeto.setAutores(hq.getAutores());
         objeto.setIlustradores(hq.getIlustradores());
+    }
+
+    public List<Autor> buscarTodosAutores() {
+        return autorRepositorio.findAll();
+    }
+
+    public Optional<Autor> buscarAutor(Integer idAutor) {
+        Optional<Autor> autor = autorRepositorio.findById(idAutor);
+        return autor;
+    }
+
+    public List<Ilustrador> buscarTodosIlustradores() {
+        return ilustradorRepositorio.findAll();
+    }
+
+    public Optional<Ilustrador> buscarIlustrador(Integer idIlustrador) {
+        Optional<Ilustrador> ilustrador = ilustradorRepositorio.findById(idIlustrador);
+        return ilustrador;
+    }
+
+    public List<Hqs> buscarTodasHqs() {
+        return hqsRepositorio.findAll();
+    }
+
+    public Optional<Hqs> buscarHq(Integer idHq) {
+        Optional<Hqs> hq = hqsRepositorio.findById(idHq);
+        return hq;
+    }
+
+    public void deletarAutor(Integer idAutor) {
+        autorRepositorio.deleteById(idAutor);
+    }
+
+    public void deletarIlustrador(Integer idIlustrador) {
+        ilustradorRepositorio.deleteById(idIlustrador);
+    }
+
+    public void deletarHq(Integer idHq) {
+        hqsRepositorio.deleteById(idHq);
     }
 
 }
