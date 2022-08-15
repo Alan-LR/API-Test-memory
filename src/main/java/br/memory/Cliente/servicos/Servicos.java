@@ -34,4 +34,40 @@ public class Servicos {
         return ilustradorRepositorio.save(novoIlustrador);
     }
 
+    public Autor alterarAutor(Integer idAutor, Autor autor) {
+        Autor objeto = autorRepositorio.getReferenceById(idAutor);
+        alterarandoAutor(objeto, autor);
+        return autorRepositorio.save(objeto);
+    }
+
+    private void alterarandoAutor(Autor objeto, Autor autor) {
+        objeto.setNome(autor.getNome());
+        objeto.setIdade(autor.getIdade());
+    }
+
+    public Ilustrador alterarIlustrador(Integer idIlustrador, Ilustrador ilustrador) {
+        Ilustrador objeto = ilustradorRepositorio.getReferenceById(idIlustrador);
+        alterarandoIlustrador(objeto, ilustrador);
+        return ilustradorRepositorio.save(objeto);
+    }
+
+    private void alterarandoIlustrador(Ilustrador objeto, Ilustrador ilustrador) {
+        objeto.setNome(ilustrador.getNome());
+        objeto.setIdade(ilustrador.getIdade());
+    }
+
+    public Hqs alterarHq(Integer idHq, Hqs hq) {
+        Hqs objeto = hqsRepositorio.getReferenceById(idHq);
+        alterandoHq(objeto, hq);
+        return null;
+    }
+
+    private void alterandoHq(Hqs objeto, Hqs hq) {
+        objeto.setTitulo(hq.getTitulo());
+        objeto.setPreco(hq.getPreco());
+        objeto.setGenero(hq.getGenero());
+        objeto.setAutores(hq.getAutores());
+        objeto.setIlustradores(hq.getIlustradores());
+    }
+
 }

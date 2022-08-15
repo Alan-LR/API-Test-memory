@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name = "Ilustradores")
@@ -55,14 +54,6 @@ public class Ilustrador {
 
     public void setIdade(Integer idade) {
         this.idade = idade;
-    }
-
-    public List<Hqs> getIdHqs() {
-        return idHqs;
-    }
-
-    public void setIdHqs(List<Hqs> idHqs) {
-        this.idHqs = idHqs;
     }
 
 }

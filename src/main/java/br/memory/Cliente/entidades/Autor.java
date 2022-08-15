@@ -56,12 +56,4 @@ public class Autor {
         this.idade = idade;
     }
 
-    public List<Hqs> getIdHqs() {
-        return idHqs;
-    }
-
-    public void setIdHqs(List<Hqs> idHqs) {
-        this.idHqs = idHqs;
-    }
-
 }
