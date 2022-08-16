@@ -119,7 +119,7 @@ public class Controlador {
             return ResponseEntity.ok().body(hqs);
     }
 
-    // Rota para pegar as hqs de um autor especifico pelo ID
+    // Rota para pegar as hqs de um ilustrador especifico pelo ID
     @GetMapping(value = "/hqs/ilustrador/{idIlustrador}")
         public ResponseEntity<List<Object>> hqsIlustrador(@PathVariable String idIlustrador){
             List<Object> hqs = servicos.hqsIlustrador(idIlustrador);
