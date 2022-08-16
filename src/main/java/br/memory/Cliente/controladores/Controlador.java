@@ -112,20 +112,6 @@ public class Controlador {
         return ResponseEntity.ok().body(hq);
     }
 
-    // Rota para pegar as hqs de um autor especifico pelo ID
-    @GetMapping(value = "/hqs/autor/{idAutor}")
-        public ResponseEntity<List<Object>> hqsAutor(@PathVariable String idAutor){
-            List<Object> hqs = servicos.hqsAutor(idAutor);
-            return ResponseEntity.ok().body(hqs);
-    }
-
-    // Rota para pegar as hqs de um ilustrador especifico pelo ID
-    @GetMapping(value = "/hqs/ilustrador/{idIlustrador}")
-        public ResponseEntity<List<Object>> hqsIlustrador(@PathVariable String idIlustrador){
-            List<Object> hqs = servicos.hqsIlustrador(idIlustrador);
-            return ResponseEntity.ok().body(hqs);
-    }
-
     // Rota para deletar Autor
     @DeleteMapping(value = "deletar/autor/{idAutor}")
     public ResponseEntity<Void> deletarAutor(@PathVariable Integer idAutor) {

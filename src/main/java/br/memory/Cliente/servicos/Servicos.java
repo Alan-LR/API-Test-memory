@@ -112,14 +112,4 @@ public class Servicos {
         hqsRepositorio.deleteById(idHq);
     }
 
-    public List<Object> hqsAutor(String idAutor) {
-        List<Object> resultado = hqsRepositorio.hqsAutor(idAutor);
-        return resultado;
-    }
-
-    public List<Object> hqsIlustrador(String idIlustrador) {
-        List<Object> resultado = hqsRepositorio.hqsIlustrador(idIlustrador);
-        return resultado;
-    }
-
 }
