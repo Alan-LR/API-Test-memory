@@ -1,6 +1,7 @@
 package br.memory.Cliente.entidades;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Table(name = "Autores")
 @Entity
@@ -30,6 +33,12 @@ public class Autor {
         this.nome = nome;
         this.idade = idade;
         this.idHqs = idHqs;
+    }
+
+    public Autor(Integer idAutor, String nome, Integer idade) {
+        this.idAutor = idAutor;
+        this.nome = nome;
+        this.idade = idade;
     }
 
     public Integer getIdAutor() {
